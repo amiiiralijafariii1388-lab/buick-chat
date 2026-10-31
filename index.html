@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <title>BUICK CHAT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark">B</div><div><div class="brand-name">BUICK <span>CHAT</span></div><small>ارتباط، ساده‌تر</small></div></div>
+      <div class="profile-mini">
+        <div class="avatar me-avatar" id="myAvatar">B</div>
+        <div class="profile-copy"><strong id="myName">کاربر بیوک</strong><small id="connectionLabel">در حال اتصال...</small></div>
+        <button class="icon-btn" id="settingsBtn" title="تنظیمات">⚙</button>
+      </div>
+      <div class="section-label"><span>گفتگوی دونفره</span><button id="newChatBtn" class="text-btn">＋ اتصال به دوست</button></div>
+      <div class="room-card">
+        <div class="room-label">کد گفتگوی شما</div>
+        <div class="room-code-row"><strong id="roomCodeDisplay">------</strong><button id="copyCodeBtn" class="copy-btn">کپی</button></div>
+        <small>این کد را برای دوستت بفرست تا وارد همین گفتگو شود.</small>
+      </div>
+      <div class="section-label"><span>پیام‌ها</span><span class="live-label"><i></i> آنلاین</span></div>
+      <div id="chatList" class="chat-list"></div>
+      <div class="sidebar-bottom"><span class="online-dot"></span> نسخه آزمایشی آنلاین <span class="version">v0.2</span></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu icon-btn" id="mobileMenu">☰</button>
+        <div class="top-title"><span class="tiny-mark">B</span><span>BUICK CHAT</span></div>
+        <div class="top-actions"><span class="local-pill"><i></i> اتصال زنده</span><button class="icon-btn" id="topSettings" title="تنظیمات">⚙</button></div>
+      </header>
+      <section class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-orb"><div class="orb-inner">B</div></div>
+        <p class="eyebrow">به دنیای بیوک خوش آمدی</p>
+        <h1>گفتگو، با <span>حس متفاوت</span></h1>
+        <p class="welcome-desc">یک کد گفتگو بساز و برای دوستت بفرست؛<br>بعد از اتصال، پیام‌ها به‌صورت زنده ردوبدل می‌شوند.</p>
+        <button class="primary-btn" id="startChatBtn">ساخت گفتگوی جدید <span>←</span></button>
+        <div class="welcome-note">برای پیام‌رسانی واقعی، راه‌اندازی اولیه Supabase لازم است.</div>
+      </section>
+      <section class="chat-view hidden" id="chatView">
+        <div class="chat-header">
+          <div class="avatar" id="activeAvatar">B</div>
+          <div class="chat-heading"><strong id="activeName">گفتگوی بیوک</strong><small id="activeStatus">در انتظار اتصال دوستت</small></div>
+          <div class="chat-head-actions"><button class="icon-btn" id="copyRoomBtn" title="کپی کد گفتگو">▣</button><button class="icon-btn" id="contactInfoBtn" title="اطلاعات گفتگو">ⓘ</button></div>
+        </div>
+        <div class="messages" id="messages"><div class="day-divider">گفتگوی شما</div></div>
+        <form class="composer" id="messageForm">
+          <button type="button" class="attach-btn" id="emojiBtn" title="افزودن شکلک">☺</button>
+          <input id="messageInput" placeholder="پیامت را بنویس..." autocomplete="off" maxlength="2000">
+          <button class="send-btn" type="submit" aria-label="ارسال">➤</button>
+        </form>
+        <div class="composer-hint">Enter برای ارسال · پیام‌ها با اتصال اینترنت همگام می‌شوند</div>
+      </section>
+    </main>
+  </div>
+  <div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
