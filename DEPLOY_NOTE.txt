@@ -1,0 +1,4 @@
+Your Supabase project URL is configured as:
+https://dqiloicilgflmccfpqwx.supabase.co
+
+The URL should NOT include /rest/v1/ when used as the Supabase client base URL.
